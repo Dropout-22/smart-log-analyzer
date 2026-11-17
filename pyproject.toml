@@ -1,0 +1,34 @@
+[project]
+name = "smart-log-analyzer"
+version = "0.1.0"
+description = "A fast, streaming CLI tool for parsing and summarizing application logs."
+readme = "README.md"
+authors = [
+    { name = "Dropout-22", email = "anthonykariuki.dev@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+logscan = "smart_log_analyzer.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = py311
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
